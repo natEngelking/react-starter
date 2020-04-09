@@ -1,5 +1,6 @@
 import React from 'react';
 import MoviesList from './MoviesList.js'
+import styles from '../main.css'
 let movieList = [
   {title: 'Mean Girls'},
   {title: 'Hackers'},
@@ -19,9 +20,10 @@ class App extends React.Component {
   }
 
   render(){
-    // console.log(props.MovieList.name);
     return(
     <div>
+      <h1 className = 'titleBorders'>Creation Station</h1>
+
       {this.state.movies.map((movie, i) =>
         <MoviesList key={i} movie={movie} />
         ) }
