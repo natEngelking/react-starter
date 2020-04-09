@@ -3,11 +3,11 @@ import MoviesList from './MoviesList.js'
 import SearchList from './SearchList.js'
 import styles from '../main.css'
 let movieList = [
-  {title: 'Mean Girls'},
-  {title: 'Hackers'},
-  {title: 'The Grey'},
-  {title: 'Sunshine'},
-  {title: 'Ex Machina'},
+  {title: 'Mean Girls', show: true},
+  {title: 'Hackers', show: true},
+  {title: 'The Grey', show: true},
+  {title: 'Sunshine', show: true},
+  {title: 'Ex Machina', show: true},
 ];
 
 class App extends React.Component {
@@ -16,16 +16,31 @@ class App extends React.Component {
 
     this.state = {
       movies: movieList,
-      title:movieList.title
+      show: movieList.show,
+      input: ''
     }
+      this.clickSearch = this.clickSearch.bind(this);
+      this.clickSubmit = this.clickSubmit.bind(this);
+
   }
 
-  clickSearch (movies) {
-    this.setState({
-      movies: movies,
-      input: ''
-    });
+  clickSearch (e) {
+    //prevents the page from clearing the input on the refresh
+    e.preventDefault();
+
+    this.setState({input: e.target.value});
+
+    // console.log(e.target.value);
+    console.log(this.state.input);
   }
+
+   clickSubmit (e, input) {
+
+
+        <h3>Sorry your movie is not available</h3>
+      
+  }
+
 
   render(){
     return(
@@ -33,8 +48,7 @@ class App extends React.Component {
       <h1 className = 'titleBorders'>Creation Station</h1>
 
       <h3>Search</h3>
-       <SearchList movie={this.state.movies} clickSearch={this.clickSearch.bind(this)}/>
-
+       <SearchList movie={this.state.movie} input={this.state.input} clickSubmit={this.clickSubmit} clickSearch={this.clickSearch}/>
 
 
       <h2>Movies</h2>
