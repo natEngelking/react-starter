@@ -3,11 +3,11 @@ import MoviesList from './MoviesList.js'
 import SearchList from './SearchList.js'
 import styles from '../main.css'
 let movieList = [
-  {title: 'Mean Girls', show: true},
-  {title: 'Hackers', show: true},
-  {title: 'The Grey', show: true},
-  {title: 'Sunshine', show: true},
-  {title: 'Ex Machina', show: true},
+  {title: 'Mean Girls', show: false},
+  {title: 'Hackers', show: false},
+  {title: 'The Grey', show: false},
+  {title: 'Sunshine', show: false},
+  {title: 'Ex Machina', show: false},
 ];
 
 class App extends React.Component {
@@ -35,11 +35,12 @@ class App extends React.Component {
   }
 
    clickSubmit (e, input) {
+    // this.state.movie.show = true;
+console.log(e)
 
+    // <h3>Sorry your movie is not available</h3>
 
-        <h3>Sorry your movie is not available</h3>
-      
-  }
+  };
 
 
   render(){
