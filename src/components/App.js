@@ -15,11 +15,17 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movies: movieList
-
+      movies: movieList,
+      title:movieList.title
     }
   }
 
+  clickSearch (movies) {
+    this.setState({
+      movies: movies,
+      input: ''
+    });
+  }
 
   render(){
     return(
@@ -27,9 +33,8 @@ class App extends React.Component {
       <h1 className = 'titleBorders'>Creation Station</h1>
 
       <h3>Search</h3>
-      {this.state.movies.map((movie, i) =>
-       <SearchList key={i} movie={movie}/>
-       )}
+       <SearchList movie={this.state.movies} clickSearch={this.clickSearch.bind(this)}/>
+
 
 
       <h2>Movies</h2>
