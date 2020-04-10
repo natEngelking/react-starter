@@ -2,6 +2,7 @@ import React from 'react';
 import MoviesList from './MoviesList.js'
 import SearchList from './SearchList.js'
 import styles from '../main.css'
+
 let movieList = [
   {title: 'Mean Girls', show: false},
   {title: 'Hackers', show: false},
@@ -16,26 +17,32 @@ class App extends React.Component {
 
     this.state = {
       movies: movieList,
-      show: movieList.show,
+      show: movieList[0].show,
       input: ''
     }
       this.clickSearch = this.clickSearch.bind(this);
       this.clickSubmit = this.clickSubmit.bind(this);
-
   }
 
   clickSearch (e) {
     e.preventDefault();
-
     this.setState({input: e.target.value});
   }
 
-   clickSubmit (e) {
+   clickSubmit (e, input) {
     e.preventDefault();
+    //loop
+console.log(this.state.show)
+console.log(this.state.input)
 
-    this.setState({show: (!this.state.show)})
-console.log(e)
-  };
+    movieList.forEach(title) {
+      if (this.state.input.toLowerCase() === movieList[i].title.toLowerCase()) {
+        this.setState({show: (movieList[i].show === true)})
+      }
+    };
+console.log(this.show)
+
+};
 
 
   render(){

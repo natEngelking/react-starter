@@ -3,7 +3,7 @@ import React from 'react'
 class SearchList extends React.Component {
   constructor (props) {
     super(props);
-    console.log(props.input)
+    console.log(props.show);
   }
 
   render () {
