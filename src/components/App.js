@@ -25,21 +25,16 @@ class App extends React.Component {
   }
 
   clickSearch (e) {
-    //prevents the page from clearing the input on the refresh
     e.preventDefault();
 
     this.setState({input: e.target.value});
-
-    // console.log(e.target.value);
-    console.log(this.state.input);
   }
 
-   clickSubmit (e, input) {
-    // this.state.movie.show = true;
+   clickSubmit (e) {
+    e.preventDefault();
+
+    this.setState({show: (!this.state.show)})
 console.log(e)
-
-    // <h3>Sorry your movie is not available</h3>
-
   };
 
 
@@ -50,7 +45,6 @@ console.log(e)
 
       <h3>Search</h3>
        <SearchList movie={this.state.movie} input={this.state.input} clickSubmit={this.clickSubmit} clickSearch={this.clickSearch}/>
-
 
       <h2>Movies</h2>
       {this.state.movies.map((movie, i) =>
